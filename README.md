@@ -16,9 +16,10 @@ This is an API for a social network by a social media startup that uses a NOSQL 
 
 ## Visuals
 
+https://user-images.githubusercontent.com/118075347/231066665-a291b9df-8b4f-4b4d-9215-554fd32b0cdf.mp4
 
-[Click here for Walkthrough Video](https://drive.google.com/file/d/1k3WpgF3f4TY06npLMR7ubknv1Z8spEIV/view)
-
+[Click here for Walkthrough Video](https://user-images.githubusercontent.com/118075347/231066665-a291b9df-8b4f-4b4d-9215-554fd32b0cdf.mp4
+)
 
 ## Installation
 
