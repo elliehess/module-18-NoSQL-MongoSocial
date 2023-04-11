@@ -29,7 +29,7 @@ module.exports = {
       //update User
       updateUser(req, res) {
         User.findOneAndUpdate(
-          { _id: req.params.id },
+          { _id: req.params.userId },
           { $set: req.body },
           { runValidators: true, new: true }
         )
@@ -62,7 +62,7 @@ module.exports = {
               ? res.status(404).json({
                   message: 'User deleted, but no thoughts found',
                 })
-              : res.json({ message: 'User successfully deleted' })
+              : res.json({ message: 'User and thoughts successfully deleted' })
           )
           .catch((err) => {
             console.log(err);
