@@ -47,9 +47,7 @@ Boost Software License 1.0
 
 ## Sources
 
-Mongoose Docs
-Activity 28 on Module 18 for guidance 
-Stack Overflow
+Mongoose Docs / Activity 28 on Module 18 for guidance  / Stack Overflow
 - for match email validate on 'models'
 - to 'push' created 'thoughtId' to associated 'user''s thoughts field
 - for creation of 'virtual' on 'models'
