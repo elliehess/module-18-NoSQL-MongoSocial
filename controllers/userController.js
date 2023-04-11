@@ -1,9 +1,8 @@
-const { ObjectId } = require('mongoose').Types;
 const {User, Thought} = require ('../models');
 
 module.exports = {
     //Get all Users
-    getUser(req, res) {
+    getUsers(req, res) {
         User.find()
           .then((user) => res.json(user))
           .catch((err) => res.status(500).json(err));
@@ -29,21 +28,26 @@ module.exports = {
       },
       //update User
       updateUser(req, res) {
-        User.findOneandUpdate(
-            { _id: req.params.userId },
+        User.findOneAndUpdate(
+          { _id: req.params.id },
           { $set: req.body },
           { runValidators: true, new: true }
         )
-        .then((user) =>
-        !user
-          ? res.status(404).json({ message: "No User with that ID!" })
-          : res.json(user)
-      )
-      .catch((err) => res.status(500).json(err));
+          .then((user) =>
+            !user
+              ? res.status(404).json({
+                  message: "No user found with that ID",
+                })
+              : res.json(user)
+          )
+          .catch((err) => {
+            console.log(err);
+            res.status(500).json(err);
+          });
       },
       //delete User
       deleteUser(req, res) {
-        User.findOneAndRemove({ _id: req.params.userId })
+        User.findOneAndDelete({ _id: req.params.userId })
           .then((user) =>
             !user
               ? res.status(404).json({ message: 'Oops, that user does not exist' })
@@ -83,10 +87,11 @@ module.exports = {
           .catch((err) => res.status(500).json(err));
       },
       //delete Friend
-      removeFriend(req, res) {
+      deleteFriend(req, res) {
         User.findOneAndUpdate(
           { _id: req.params.userId },
           { $pull: { friends: req.params.friendId } },
+          
           { runValidators: true, new: true }
         )
           .then((user) =>
@@ -94,7 +99,7 @@ module.exports = {
               ? res
                   .status(404)
                   .json({ message: 'No user found with that ID :(' })
-              : res.json(user)
+              : res.json({message: 'Unfriended!'})
           )
           .catch((err) => res.status(500).json(err));
       },

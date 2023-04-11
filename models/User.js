@@ -1,5 +1,4 @@
 const { Schema, model } = require('mongoose');
-const thoughtSchema = require('./Thought');
 
 //Schema to create User model
 const userSchema = new Schema(
@@ -14,7 +13,7 @@ const userSchema = new Schema(
             type: String,
             required: true,
             unique: true,
-            match: [/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/, 'Please enter a valid email address',],
+            match: [/^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/, 'Please enter a valid email address',], //help from Stack Overflow 
           },
           thoughts: [
             {
@@ -38,6 +37,7 @@ const userSchema = new Schema(
 );
 
 //create virtual that retrieves the length of the user's friends array field on query
+//help from Mongoose docs
 userSchema.virtual('friendCount').get(function() {
     return this.friends.length;
   });

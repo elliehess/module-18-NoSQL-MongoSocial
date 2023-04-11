@@ -22,7 +22,7 @@ module.exports = {
       createThought(req, res) {
         Thought.create(req.body)
         .then(({ _id }) => {
-            return User.findOneAndUpdate( //push the created thought's _id to the associated user's thoughts
+            return User.findOneAndUpdate( //push the created thought's _id to the associated user's thoughts //help from Stack Overflow
               { _id: req.body.userId },
               { $push: { thoughts: _id } },
               { new: true }
@@ -85,7 +85,7 @@ module.exports = {
           .catch((err) => res.status(500).json(err));
       },
       //delete a Reaction
-      removeReaction(req, res) {
+      deleteReaction(req, res) {
         Thought.findOneAndUpdate(
           { _id: req.params.thoughtId },
           { $pull: { reaction: { reactionId: req.params.reactionId } } },
