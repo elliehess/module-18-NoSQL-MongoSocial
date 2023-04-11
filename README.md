@@ -12,6 +12,7 @@ This is an API for a social network by a social media startup that uses a NOSQL 
 - [Usage](#usage)
 - [Tests](#tests)
 - [License](#license)
+- [Sources](#sources)
 - [Questions](#questions)
 
 ## Visuals
@@ -43,6 +44,15 @@ Use Insomnia Core to test API GET, POST, PUT, and DELETE routes.
 ## License
 
 Boost Software License 1.0
+
+## Sources
+
+Stack Overflow
+- for match email validate on 'models'
+- to 'push' created 'thoughtId' to associated 'user''s thoughts field
+Mongoose Docs
+- for creation of 'virtual' on 'models'
+Activity 28 on Module 18 for guidance 
 
 ## Badges
 
